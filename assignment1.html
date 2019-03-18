@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueApp</title>
+    <script src="vue.js"></script>
+</head>
+
+
+<body>
+<div id="exercise">
+    <p> {{ name }} - {{ age }} </p>
+    <p>{{ age*3 }} </p>
+    <p> {{ rand() }}</p> 
+</div> 
+
+<div>
+    <img v-bind src="image" >
+</div>
+<div>
+    <input type="text" v-bind:value="name">
+</div>
+
+
+<script>
+new Vue({
+	el: '#exercise',
+  data: {
+  	name: 'DILEEP',
+    age: 21,
+    image: 'https://www.google.com/search?q=vue&tbm=isch&source=iu&ictx=1&fir=oSj0NACCceYleM%253A%252CNgTyn8bKIS8ifM%252C%252Fg%252F11c0vmgx5d&vet=1&usg=AI4_-kS3iZcwRYeFORdfVTh4ZDplx5gHMA&sa=X&ved=2ahUKEwjIxsC9_4PhAhX48HMBHT_TDDAQ_B0wI3oECAQQEA&cshid=1552647965555786#imgrc=t_12Px0RtwVq1M:&vet=1',
+  },
+  methods: {
+      rand: function(){
+          return Math.random();
+      }
+  },
+});
+</script>
+
+</body>
+</html>

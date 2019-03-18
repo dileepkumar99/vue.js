@@ -1,0 +1,38 @@
+<!--
+Class1 in the course.
+- Creating the first VueJS app.
+- Changing the present title with given user input.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueApp</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-on:input="changeTitle">
+    <p>{{ title }}</p>
+  </div>
+
+
+<script>
+new Vue({
+	el: '#app',
+  data: {
+  	title: 'Start typing to change me!'
+  },
+  methods:{
+  	changeTitle: function(event){
+    	this.title = event.target.value;
+    }
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!-- 
+Binding to attributes.
+- v-bind directive is the new topic here.
+- v-once disables the re-rendring of html elements.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueApp</title>
+    <script src="vue.js"></script>
+</head>
+
+
+<body>
+  <div id="app">
+    <h1 v-once>{{ title }}</h1>
+    <p>{{ sayHello() }} - <a v-bind:href='link'>Google</p>
+    <hr>
+    <p v-html="finishedLink"> </p>
+  </div>
+
+
+<script>
+new Vue({
+	el: '#app',
+  data: {
+  	title: 'Click to open GOOGLE!',
+    link: 'http://google.com',
+    finishedLink: '<a href="http://vuejs.org">Refered from:VueJS</a>',
+  },
+  methods:{
+  	sayHello: function(){
+        this.title= 'Here this link ---->';
+    	return this.title;
+    }
+  }
+});
+</script>
+
+</body>
+</html>

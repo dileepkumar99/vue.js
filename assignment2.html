@@ -1,0 +1,47 @@
+<!--
+- showing an alert when button clicked
+- listening to keydown event
+- listening to keydown event when button(enter) is pressed
+(difference between keydown and keyup is 
+    listening to the event when the button is being pressed 
+  & listening to the event after button is pressed)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueApp</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+  <div id="exercise">
+    <div>
+   <button v-on:click="alertMe">Show Alert</button>
+   </div>
+   <input type="text" v-on:keydown="value = $event.target.value">
+   <p>{{ value }}</p>
+
+   <input type="text" v-on:keydown.enter="value= $event.target.value">
+   <p>{{ value }}</p>
+  </div>
+
+
+<script>
+new Vue({
+	el: '#exercise',
+    data: {
+        value: ''
+        },
+  methods:{
+    alertMe: function(){
+      alert('Alert! Go back!!')
+    }
+  }
+});
+</script>
+
+</body>
+</html>

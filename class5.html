@@ -1,0 +1,58 @@
+<!--
+New object type computed is introduced in the vue instance. (Dependent Properties)
+- To call the function of a computed instance we don't need to enter the paranthesis in the interpolation part.
+New object watch is introduced in the vue instance. ( Execute code upon data changes)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueApp</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <button v-on:click="counter++">Increase First</button>
+    <button v-on:click="counter--">Decrease First</button>
+    <button v-on:click="secondCounter++">Increase Second</button>
+    <button v-on:click="secondCounter--">Decrease Second</button>
+    <p>Counter: {{ counter }} | {{ secondCounter }}</p>
+    <p>Result: {{ result() }}| {{ output }}</p>
+  </div>
+
+
+<script>
+new Vue({
+	el: '#app',
+  data: {
+  	counter: '0',
+    secondCounter: '0'
+  },
+  watch: {
+      counter: function(value){
+          var vm = this;
+        setTimeout(function(){
+            vm.counter = 0;
+            vm.secondCounter = 0;
+         }, 20000);
+      }
+  },
+  computed: {
+      output: function(){
+          return this.counter > 5 ? 'Greater than 5' : 'Less than 5';
+      }
+  },
+  methods:{
+  	result: function(){
+    	return this.counter > 5 ? 'Greater than 5' : 'Less than 5'
+    },
+    
+  }
+});
+</script>
+
+</body>
+</html>

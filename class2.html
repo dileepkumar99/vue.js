@@ -1,0 +1,38 @@
+<!--
+Class2 in the course.
+- Accessing data in the vue isntance.
+- Previously we accessed the data from data object now we accessed the data from methods object.
+- changes between these are in line 30,31
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueApp</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p>{{ sayHello() }}</p>
+  </div>
+
+
+<script>
+new Vue({
+	el: '#app',
+  data: {
+  	title: 'Start typing to change me!'
+  },
+  methods:{
+  	sayHello: function(){
+    	return this.title;
+    }
+  }
+});
+</script>
+
+</body>
+</html>

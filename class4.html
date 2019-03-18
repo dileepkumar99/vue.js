@@ -1,0 +1,58 @@
+<!--
+Increasing counter when click on a button.
+- events, event modifiers. (line 22, function dummy in methods)
+- key modifiers. (line 24, alert function in methods)
+- {{ something }} this method is called interpolation.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueApp</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <button v-on:click="increase">Click here!</button>
+    <button v-on:click="counter ++">Increment by 1!</button>
+    <p>{{ counter *2 }}</p>
+    <p v-on:mousemove="UpdateCoordinates">
+      coordinates: {{ X }} / {{ Y }} 
+      - <span v-on:mousemove = "dummy">DEAD SPOT</span>
+    </p>
+    <input type="text" v-on:keyup.space="alertMe">
+  </div>
+
+
+<script>
+new Vue({
+	el: '#app',
+  data: {
+  	counter: '0',
+    X: 0,
+    Y: 0
+  },
+  methods:{
+  	increase: function(){
+    	this.counter ++;
+    },
+    UpdateCoordinates(event){
+        this.X = event.clientX;
+        this.Y = event.clientY;
+    },
+    dummy: function(event){
+      event.stopPropagation();
+      
+    },
+    alertMe: function(){
+      alert('Sorry space is not allowed!')
+    }
+  }
+});
+</script>
+
+</body>
+</html>
