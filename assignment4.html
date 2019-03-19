@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueApp</title>
+    <script src="vue.js"></script>
+</head>
+
+
+<body>
+    <div id="exercise">
+    <p v-if="isShown">Now you see me.</p>
+    <p v-else>Now you cant.</p>
+    <p v-show="isShown">Now you see me.</p>
+    <p v-show="!isShown">Now you cant.</p>
+    <button @click="isShown = !isShown">Toggle</button>
+
+    <ul>
+    <li v-for= "(element, index) in array">{{ element }} - {{ index }}</li>
+    </ul>
+
+    <ul>
+        <li v-for="(value, key, i) in myObject">{{ value }} - {{ key }} - {{ i }}</li>
+    </ul>
+    <ul>
+        <li v-for="value in testData">
+            <template v-if="Array.isArray(value)">
+                <div v-for="element in value">{{ value }}</div>
+            </template>
+            <template v-else>
+                {{ value }}
+            </template>
+        </li>
+    </ul>
+</div>
+</body>
+<script>
+new Vue({
+    el: "#exercise",
+    data:{
+        isShown: true,
+        array: ['Superman', 'Batman', 'Spiderman', 'Ironman'],
+        myObject: 
+        {
+            title: 'Lord of the Rings',
+            author: 'J.R.R. Tolkiens',
+            books: '3'
+        },
+        testData: 
+        {
+            name: 'TESTOBJECT', 
+            id: 10,
+            data: [1.67, 1.33, 0.98, 2.21]
+        }
+    }
+});
+</script>
+</html>

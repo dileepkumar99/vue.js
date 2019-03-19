@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueApp</title>
+    <script src="vue.js"></script>
+
+</head>
+
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for= '(ingredient, i) in ingredients' :key ='ingredient'>{{ ingredient }} ({{ i }})</li> <!-- Rendering lists with v-for-->
+        </ul>
+        <button @click= "ingredients.push('PineApple')">Add PineApple</button>
+        <button @click= "ingredients.push('Apple')">Add Apple</button>
+        <hr>
+        <template v-for= '(person, index) in persons'>
+            <h2>{{ person.name }} | {{ person.age }}</h2> <!-- alternative syntax for v-for loop -->
+            <p>{{ index }} </p>
+        </template>
+        <hr>
+        <ul> 
+            <li v-for= 'person in persons'>
+                <div v-for= "(value, key) in person">{{ key }}: {{ value }}</div> <!-- looping through objects-->
+            </li>
+        </ul>
+        <hr>
+        <ul>
+            <div v-for='i in 10'> {{ i }}</div> <!-- looping through numbers-->
+        </ul>
+</div>
+</body>
+
+<script>
+new Vue({
+    el: "#app",
+    data: {
+        ingredients: ['Apple', 'Banana', 'Grapes'],
+        persons: [
+            {name: 'Dileep', age: 21, gender: 'Male'},
+            {name: 'SuperMan', age: 22, gender: 'Male'}
+        ]
+    }
+
+});
+</script>
+</html>
